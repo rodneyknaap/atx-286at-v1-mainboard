@@ -54,6 +54,10 @@ User Chuck(G) also provided various information and wrote extensive useful infor
 I thank Charles MacDonald for developing his PAL read adapter and PA.EXE software which reduces the logic equations.
 As I mentioned, Johann(jonny64) developed his own version of a PAL analyzer named "pete" which can do a few more advanced things to be able to do very important logic reductions and conclusions on RAW PAL read data from Charles' adapter. Especially is "pete" able to detect certain inputs on a PAL which sometimes switch to operating as an output. So the scripts Johann made can conclude this mode of operation by itself and also can reduce the subsequent logic consequences of this operation mode in the logic equations. If we don't have this automatic function from pete, it will be the person doing the analysis who will need to reason what is happening back from the observations, which is what I have initially done myself, it was quite a frustrating process to discover what was happening exactly inside the PAL U87 which caused me a lot of stress and lost sleep!
 
+Also a special thanks goes out to user limeprogramming(Adam) here on GitHub for making his excellent USB to serial mouse project with the RP2040!
+https://github.com/LimeProgramming/USB-serial-mouse-adapter
+He kindly agrees for his project to be integrated into mine in a modified form, thanks!
+
 Everyone who commented and replied to all my posts, thanks for your help and friendship!
 
 - datasheets, application notes and specifications by:
