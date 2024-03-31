@@ -1,5 +1,6 @@
 # ATX form factor 80286 AT mainboard PCB Rev 1
 
+
 ## Current status(march 2024): This project is currently in pre-testing phase, the designs have been ordered from a PCB house.
 
 The project consists of a ATX mainboard and a ISA memory card.
@@ -83,13 +84,46 @@ This project also serves to document the historical 16 bit AT PC design by imple
 I have designed various I/O control circuits using the chip manufacturer datasheets to determine the proper interfacing methods, ports etc suitable for this 286 AT design.
 I also searched in many IO port documents to determine how to interface the onboard devices.
 
-##How the project took form
+## How the project took more solid form
 
 I started by finding a suitable mainboard for study, testing and analysis. I found a few examples from NCR and ARC however these proved to be frustratingly unstable and in a poorly operating condition. By no means would I have been able to base this project on those designs. Luckily I found an Ebay auction which offered an IBM 5170 mainboard for a very reasonable price. I repaired this mainboard and I have extensively tested it out. The IBM has the added advantage of being completely documented in their schematics which was very useful for this project.
 
-I proceeded to draft modern KiCad schematics for the 5170 and subsequently modified the IBM designs to suit this project as much as possible. This involved removing the DRAM support logic and parity checking mechanisms from the schematics. Next I needed to reverse engineer the contents of PAL U87 which is elemental in the 5170 operation. Without the U87 design, a 5170 and its schematics will be useless and missing the vital operating circuits without which we have no AT! At the time there was not any documentation of the logic contained inside U87 to be found anywhere. So I proceeded to discover the logic by analysis. I used the method by Charles MacDonald initially and discussed with Johann to develop a utility program python script which I needed to form my conclusions about the actual operation of the U87 PAL.
+I proceeded to draft modern KiCad schematics for the 5170 and subsequently modified the IBM designs to suit this project as much as possible. This involved removing the DRAM support logic and parity checking mechanisms from the schematics. Next I needed to reverse engineer the contents of PAL U87 which is elemental in the 5170 operation. Without the U87 design, a 5170 and its schematics will be useless and missing the vital operating circuits without which we have no AT! At the time there was not any documentation of the logic contained inside U87 to be found anywhere. So I proceeded to discover the logic by analysis. I used the method developed by Charles MacDonald initially and discussed with Johann to develop a utility program python script which I needed to form my conclusions about the actual operation of the U87 PAL.
 Finally we succeeded to crack the design and even further simplify the logic equations of U87 to their most likely original PAL source code as originally created, probably by Don Estridge himself. If anyone has more information on how he developed the AT, please contact me, I am very much interested!
 
+After I had the complete design of the 5170, I had to evaluate the large amount of logic chips which would be involved in case I would choose to use TTL chips only to implement the whole design. From the equations of U87, I could conclude why IBM chose this path of development. Adding all this additional logic would make the PCB even larger and make this whole concept impossible to properly implement on a single PCB in a practical PCB size. So I have concluded that I will need to use programmable logic in order to reduce the PCB area needed. And since I needed to use programmable logic anyway, I decided I had better do it properly to benefit from this concept the most. So I chose the ATF1508AS CPLD with the help and advice of user lowen. 
+
+## Development path leading up to the first design revision
+After reverse engineering PAL U87, I proceeded to draft schematics and did some initial parts placements on the mainboard. This quickly led me to conclude that in order to integrate many necessary devices onboard as planned, I would need to shift the entire memory subsystem and decoder CPLD onto a ISA adapter card. The BIOS and option ROM EPROMS are still placed on the mainboard because I like it more this way in a more traditional view of typical mainboards of the time.
+
+I proceeded to draft my modified and new design of this project into schematics using KiCad and Quartus.
+
+The complete design including my changes and additions is contained in and needs:
+- a full ATX size mainboard PCB
+- three 84 pin PLCC CPLDs which can be plugged into through-hole sockets
+- a ISA memory subsystem card PCB containing the footprints for a total of 15MB of fully decoded SRAM memory.
+This card provides 640KB of conventional memory, 128KB of UMBs at D0000 and E0000 segments with disable jumpers, and 14MB of XMS memory.
+Each set of two 512KB SRAM ICs provides an additional megabyte of RAM for the system.
+The amount of memory can be chosen by populating the desired amount of SRAM chips.
+So basically this ISA slot card takes the function of the historically more typical DRAM SIMMs and implements the full PC memory space in SRAM memory.
+Please note to observe the pin 1 mark of your particular RAM ICs and make sure you are not using a reversed pinout SRAM which would need to be soldered in flipped over orientation!
+
+The mainboard provides two 16 bit IDE ports, a 8 bit SCSI port, a floppy drive interface, 16 bit Realtek LAN, USB to serial mouse using RP2040, discrete simplified LPT port, ATX power supply control, reset logic, and various LEDs to indicate certain system functions. The 64k BIOS is contained in two EPROMs on the mainboard and there is also a 32kb sized option ROM EPROM socket included on the mainboard. The design of this project is meant to use the XT-IDE BIOS option ROM software developed by XT IDE universal BIOS team, which needs to be configured and programmed into an option ROM EPROM IC which can be placed in the option ROM socket on the mainboard.
+
+## BIOS to use
+I recommend using a BIOS other than the IBM one mainly because the IBM BIOS is known to contain restrictions in operation and verifies the clock speed to lockout operation if the speed is raised.
+So any similar BIOS to the IBM 5170 from other sources would possibly qualify to run on this project.
+There have been BIOS code produced by ARC, COPAM, NRC and MR BIOS to name a few examples.
+
+## Project status (march 2024)
+I am currently awaiting the PCB production and delivery and I will proceed to build, test and possibly debug the first design revision.
+I will need to get the CPLDs from recycled Chinese source programmed and functional in order to be able to test the project design for the first time.
+
+So all the information on this GitHub page is openly provided for informational purposes only for everyone interested in such a project, with all the clear cautions and understanding that anything you do is at your own sole responsibility and no operation or useful purpose is implied or possible, please carefully read and understand the comments above. 
+
+## (!) This project is currently completely untested and thus only a concept waiting to be confirmed
+I will proceed with the work on this project when I have all the necessary parts and PCBs.
+Updates will follow as soon as I have them.
 
 
 
