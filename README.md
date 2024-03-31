@@ -39,7 +39,7 @@ I want to thank users Makefile, acgs, sergey, Timo W., sharkcz, Hpela, Alvaro64,
 
 In particular I want to thank Johann (jonny64) who took an active concern and participation in my project to reverse engineer the PAL chips on the 5170 mainboard.
 This process has been extremely difficult and Johann helped a lot by programming python scripts to quickly be able to analyze large volumes of logic equation information.
-Resulting from our cooperation Johann has developed a reverse engineering pythone program called "pete" and a script which can generate the PAL fuse maps from reverse analysis which can be directly programmed into a GAL. He is planning, or has published his work in the mean time on GitHub so be sure to search for his project here if you are doing similar work on PAL ICs used in old devices.
+Resulting from our cooperation Johann has developed a reverse engineering python program called "pete" and a script which can generate the PAL fuse maps from reverse analysis which can be directly programmed into a GAL. He is planning, or has published his work in the mean time on GitHub so be sure to search for his project here if you are doing similar work on PAL ICs used in old devices.
 
 User Alvaro64 from Spain was very kind to provide friendly discussions and various information and he even offered me to borrow his legacy Intel mainboard for checking and analysis.
 
