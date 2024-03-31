@@ -1,5 +1,6 @@
-Current status(march 2024): This project is currently in pre-testing phase, the designs have been ordered from a PCB house.
+# ATX form factor 80286 AT mainboard PCB Rev 1
 
+## Current status(march 2024): This project is currently in pre-testing phase, the designs have been ordered from a PCB house.
 
 The project consists of a ATX mainboard and a ISA memory card.
 
