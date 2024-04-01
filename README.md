@@ -9,7 +9,7 @@
 The project consists of a ATX mainboard and a ISA memory card.
 
 Purpose and permitted use, cautions for a potential builder of this design
-This project was created for historical purposes out of love for historical computing designs and for the purpose of enabling computing enthousiasts with a sufficient level of building and troubleshooting expertise to be able to experience the technology by building and troubleshooting the hardware described in this project.
+This project was created for historical purposes out of love for historical computing designs and for the purpose of enabling computing enthousiasts with a sufficient level of building and troubleshooting expertise to be able to experience the technology by building and troubleshooting the hardware described in this project. Due to the level of this project, it may be suitable as a project for students to get into. If there are any questions from teachers who like to teach about this technology I would be happy to answer them. It may be really interesting to analyse the elaborate and complex CPU timing and 8 bit to 16 bit data byte translation and DMA mechanisms in an educational setting.
 
 Besides the GPL3 license there are a few warnings and usage restrictions applicable:
 No guarantees of function or fitness for any particular or useful purpose is given, building and using this design is at the sole responsibility of the builder.
