@@ -1,0 +1,69 @@
+Name     IBM-5170-U87 ;
+PartNo   00 ;
+Date     26-01-2023 ;
+Revision 07 ;
+Designer Rodney & Johann ;
+Company  - ;
+Assembly None ;
+Location None ;
+Device   G16V8A;
+
+/* *************** INPUT PINS *********************/
+PIN 15=XA0;
+PIN 16=XBHE;
+PIN 1=RAS;
+PIN 2=MEMW;
+PIN 3=IOR;
+PIN 4=AIOW;
+PIN 5=Q1;
+PIN 6=IO_CS_16;
+PIN 7=AEN_1;
+PIN 8=AEN_2;
+PIN 9=Q4;
+PIN 11=FSYS_16;
+PIN 13=RES_0WS;
+
+/* *************** OUTPUT PINS *********************/
+PIN 12=END_CYC;
+PIN 14=DMA_AEN;
+PIN 17=GATE_245;
+PIN 18=DIR_245;
+PIN 19=DATA_CONV;
+
+!XBHE.oe    =  DMA_AEN;
+ XA0.oe     = !AEN_2;
+RES_0WS.oe = 'b'0;
+
+XBHE      =  AEN_2 & !XA0;
+XA0       = 'b'0;
+
+DMA_AEN = AEN_1 & AEN_2;
+
+!DATA_CONV = 
+    AEN_1 & AEN_2 & !FSYS_16 & Q1 & RAS & !XA0 & !XBHE
+  # AEN_1 & AEN_2 & !IOR & IO_CS_16 & Q1 & !XA0 & !XBHE
+  # AEN_1 & AEN_2 & AIOW & IO_CS_16 & Q1 & !XA0 & !XBHE;
+
+!DIR_245 = 
+    !AEN_1 & MEMW & RAS
+  # AEN_1 & AEN_2 & !MEMW & !XBHE
+  # AEN_1 & AEN_2 & AIOW & !XBHE;
+
+!END_CYC = 
+    FSYS_16 & Q1 & RAS
+  # !IOR & !IO_CS_16 & Q1
+  # AIOW & !IO_CS_16 & Q1
+  # RAS & !RES_0WS
+  # AIOW & !RES_0WS
+  # Q4;
+
+!GATE_245 = 
+    FSYS_16 & RAS & !AEN_1 & !XBHE
+  # FSYS_16 & !AEN_1 & !IOR & !XBHE
+  # AEN_1 & IO_CS_16 & XA0 & !IOR & !XBHE
+  # AEN_1 & AIOW & IO_CS_16 & XA0 & !XBHE
+  # AEN_1 & RAS & XA0 & !FSYS_16 & !XBHE
+  # AEN_1 & XA0 & !FSYS_16 & !MEMW & !XBHE;
+
+
+
