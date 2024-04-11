@@ -128,14 +128,15 @@ I recommend using a BIOS other than the IBM one mainly because the IBM BIOS is k
 So any similar BIOS to the IBM 5170 from other sources would possibly qualify to run on this project.
 There have been BIOS code produced by ARC, COPAM, NCR and MR BIOS to name a few examples.
 
-## Project status (march 2024)
-I am currently awaiting the PCB production and delivery and I will proceed to build, test and possibly debug the first design revision.
-I will need to get the CPLDs from recycled Chinese source programmed and functional in order to be able to test the project design for the first time.
+## Project status (april 2024)
+I am currently awaiting the PCB delivery and I will proceed to build, test and possibly debug the first design revision.
+I have received 10 CPLDs from China which look genuine so it should be okay.
+I will start the assembly work as soon as I receive the prototype PCBs which are supposed to arrive soon, possibly around april 11th.
+Currently I am also waiting on a delivery of 84 pin PLCC sockets which are essential parts which I can't borrow from any other existing boards I have here.
 
-So all the information on this GitHub page is openly provided for informational purposes only for everyone interested in such a project, with all the clear cautions and understanding that anything you do is at your own sole responsibility and no operation or useful purpose is implied or possible, please carefully read and understand the comments above. 
+All the information on this GitHub page is openly provided for informational purposes only for everyone interested in such a project, with all the clear cautions and understanding that anything you do is at your own sole responsibility and no operation or useful purpose is implied or possible, please carefully read and understand the comments above. 
 
-## (!) This project is currently completely untested and thus only a concept waiting to be confirmed
-I will proceed with the work on this project when I have all the necessary parts and PCBs.
+## Please note: This project is currently completely untested and thus only a concept waiting to be confirmed
 Updates will follow as soon as I have them.
 
 
