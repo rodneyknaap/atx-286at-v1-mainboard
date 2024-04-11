@@ -135,6 +135,6 @@ I will start the assembly work as soon as I receive the prototype PCBs which are
 Currently I am also waiting on a delivery of 84 pin PLCC sockets which are essential parts which I can't borrow from any other existing boards I have here.
 
 ## Please note: This project is currently completely untested and thus only a concept waiting to be confirmed
-All the information on this GitHub page is openly provided for informational purposes only for everyone interested in such a project, with all the clear cautions and understanding that anything you do is at your own sole responsibility and no operation or useful purpose is implied or possible, please carefully read and understand the comments above. 
+All the information on this GitHub page is openly provided for informational purposes only for everyone interested in such a project, with all the clear cautions and understanding that anything you do is at your own sole risk and responsibility and no operation or useful purpose is implied or possible, please carefully read and understand the comments above. 
 
 Updates will follow as soon as I have them.
