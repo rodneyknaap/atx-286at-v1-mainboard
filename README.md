@@ -134,8 +134,6 @@ The CPLD programs are verified and debugged, and latest Rev 2 versions are uploa
 On my test build these are functioning properly with MR BIOS generic 286 version "STD_286".
 There is no Turbo function in the design, the CPU internal clock speed is 8Mhz.
 
-https://github.com/rodneyknaap/atx-286at-v1-mainboard/blob/main/Rev_1_PCB_Prototype_photo.jpg
-
 ![A photo of the assembled Rev1 prototype test setup](Rev_1_PCB_Prototype_photo.jpg)
 
 There are a few remaining things to test out such as:
