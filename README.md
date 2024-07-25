@@ -132,8 +132,8 @@ Recommended to backup the CMOS RAM with a utility to file as soon as the COM por
 Restoring that file and a CTRL-ALT-DEL ensures that you can use the mouse properly.
 The Quadtel BIOS for 5170 is best at detecting all hardware though less elegant looking, but 100% reliable.
 
-## Project status (may 2024)
-The mainboard and ISA memory card are fully built.
+## Project status (july 2024)
+The mainboard and ISA memory card are built and extensively tested.
 The CPLD programs are verified and debugged, and latest versions are uploaded here in a single archive containing all the CPLD design projects and JED files.
 
 There is no Turbo function in the design, the CPU internal clock speed is verified at 16Mhz, tested for many hours.
@@ -156,12 +156,29 @@ All RAM should be added in sequence, and will be automatically detected by the B
 All RAM above 1MB is technically XMS memory (HIMEM.SYS) and DOS can be loaded into high memory.
 128 KB of UMB blocks in segment D and E fully available for loading TSR drivers, needs UMB RAM clearing and UMB driver by Marco van Zwetselaar same as on XT PC.
 
+## Please read these notes:
+## Recommended changes/additions besides PCB assembly:
+- pulldown 15k on PEREQ
+- pullup 10k on /ERROR (free resistor on RN2 pin 2)
+- R10 SHOULD BE SHORTED, CONNECT PIN2 OF KBC TO GROUND IS MORE STABLE
+- Pico LEDS wrong resistors should be 1k resnet
+- R72 R73 R74 not needed short these connections
+- polarity hdd leds reversed on silkscreen, check schematic should be reversed
+- UMC 82284 possibly use R23 of 300 ohms, datasheet is unclear and showing mixed information
+- S0 AND S1 PULL UP 4K7
+- use 10k resistor networks on all ISA data and address lines. Best to solder a resistor network on the transceivers which is the easiest.
+- These 10k resistors are not required but add to system stability
+- the RTL8019AS is not recommended to assemble it will cause severe instability issues
+- 32Mhz crystal for CPU clock: not needed to add load capacitors, if it doesn't oscillate try 2x 10pF
+- if a crystal oscillates at about 1/3 of its fundamental frequency this usually means that the PCB capacitance is too high for the crystal, trying a newer manufactured crystal with better specifications may help.
+- above 16Mhz CPU clock speed is not verified and will probably not initialize the VGA card with current CPLD designs
+
 There are a few remaining things to test out such as:
 - adding the SCSI chip and circuit parts
-- testing the UART with RP2040 USB to serial converter, solving detection by MR BIOS
+
 MR BIOS detection is sometimes not seeing the UART on the mainboard, so clearing the CMOS RAM may resolve detection.
-Use a CMOS backup program to restore UART in CMOS. Possibly using a 83450 UART may help detection.
-Check Limeprogramming USB to serial project for programming RP2040. Pins see the schematic of mainboard, same numbering as RP2040.
+Use a CMOS backup program to restore UART in CMOS. Possibly using a 83450 UART may improve detection.
+Check Limeprogramming USB to serial project for programming RP2040 here on GitHub. Pins see the schematic of mainboard, same numbering as RP2040, using some wires and pin strips the RP2040 can be directly plugged in.
 See the VCF project thread for other details.
 
 ## The core AT components are fully verified in my test build
