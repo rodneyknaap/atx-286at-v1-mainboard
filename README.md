@@ -156,6 +156,11 @@ All RAM should be added in sequence, and will be automatically detected by the B
 All RAM above 1MB is technically XMS memory (HIMEM.SYS) and DOS can be loaded into high memory.
 128 KB of UMB blocks in segment D and E fully available for loading TSR drivers, needs UMB RAM clearing and UMB driver by Marco van Zwetselaar same as on XT PC.
 
+VGA card: recommended a Trident TVGA9000B card. Otherwise just test what you have.
+Usually older and slower cards may not work at 16Mhz CPU clock.
+
+The DMA controllers operate at 5.33Mhz at 1/3 division from 16Mhz FDC clock, this is slightly over spec but with newer date DMA chips this seems fine. Tested and verified formatting and booting from floppy disks, using disk images to restore to floppy disk, all appears to function 100% reliably using this DMA clock speed. This can benefit games where sound data is loaded via DMA for example so the game routines experience less delays from loading the sound.
+
 ## Please read these notes:
 ## Recommended changes/additions besides PCB assembly:
 - pulldown 15k on PEREQ
