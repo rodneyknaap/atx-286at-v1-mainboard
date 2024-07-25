@@ -127,27 +127,51 @@ But the AT was much more than those aspects when you dive deep into the technolo
 I recommend using a BIOS other than the IBM one mainly because the IBM BIOS is known to contain restrictions in operation and verifies the clock speed to lockout operation if the speed is raised.
 So any similar BIOS to the IBM 5170 from other sources would possibly qualify to run on this project.
 There have been BIOS code produced by ARC, COPAM, NCR and MR BIOS to name a few examples.
+MR BIOS is the most elegant BIOS at the moment. It may sometimes misdetect the COM port chip, erasing the CMOS RAM will reset detection.
+Recommended to backup the CMOS RAM with a utility to file as soon as the COM port is detected.
+Restoring that file and a CTRL-ALT-DEL ensures that you can use the mouse properly.
+The Quadtel BIOS for 5170 is best at detecting all hardware though less elegant looking, but 100% reliable.
 
 ## Project status (may 2024)
 The mainboard and ISA memory card are fully built.
-The CPLD programs are verified and debugged, and latest Rev 2 versions are uploaded here.
-On my test build these are functioning properly with MR BIOS generic 286 version "STD_286".
-There is no Turbo function in the design, the CPU internal clock speed is 8Mhz.
+The CPLD programs are verified and debugged, and latest versions are uploaded here in a single archive containing all the CPLD design projects and JED files.
+
+There is no Turbo function in the design, the CPU internal clock speed is verified at 16Mhz, tested for many hours.
+Recommended a Harris 286 rated at 16Mhz. Higher speeds pending, waiting for further testing and verification.
+When using sockets, please find tight fitting and reliable ones.
+There is a lot of garbage being sold on the internet, stable contacts are a requirement of 16Mhz CPU clock operation.
+If your system freezes, the most likely reason is a loose contact so re-insert all ICs.
 
 ![A photo of the assembled Rev1 prototype test setup](Rev_1_PCB_Prototype_photo.jpg)
 
+It is currently not recommended to add the RTL8019AS chip on the mainboard.
+On my setup this created a lot of interference.
+In fact I recommend a UMC UM9008 LAN card instead.
+FTP transfer works most reliable when "putting" a large archive backup for example into the remote FTP server.
+This allows to transfer gigabytes without any freeze.
+For archiving and backups ARJ is recommended on this type of system.
+If you want to play Doom, I highly recommend the Doom8088 project here at GitHub 
+Make sure to add enough RAM, for example 8 chips will make 4MB of RAM.
+All RAM should be added in sequence, and will be automatically detected by the BIOS.
+All RAM above 1MB is technically XMS memory (HIMEM.SYS) and DOS can be loaded into high memory.
+128 KB of UMB blocks in segment D and E fully available for loading TSR drivers, needs UMB RAM clearing and UMB driver by Marco van Zwetselaar same as on XT PC.
+
 There are a few remaining things to test out such as:
 - adding the SCSI chip and circuit parts
-- adding the RTL8019AS LAN chip, preparing the 16 bit configuration EEPROM on another system
 - testing the UART with RP2040 USB to serial converter, solving detection by MR BIOS
-MR BIOS detection is not yet seeing the UART on the mainboard, this has probably to do with the RP2040 not being connected yet
-Using a ISA card with the UART on it works fine so it's not the system but some detection signal missing.
-Possibly the RS232 level shifters are raising some inputs high by default which then gets detected.
-I will examine and test the ISA card to find the correct factor in triggering detection.
-This will expectedly not lead to PCB changes being needed but rather I want to know the details of the mechanism.
-The UART is wired differently than most situations because I am bypassing the RS232 level shifters and directly coupling serial TTL for the converted USB mouse only.
+MR BIOS detection is sometimes not seeing the UART on the mainboard, so clearing the CMOS RAM may resolve detection.
+Use a CMOS backup program to restore UART in CMOS. Possibly using a 83450 UART may help detection.
+Check Limeprogramming USB to serial project for programming RP2040. Pins see the schematic of mainboard, same numbering as RP2040.
+See the VCF project thread for other details.
 
-## Please note: The core AT components are currently verified in my test build
+## The core AT components are fully verified in my test build
 All the information on this GitHub page is openly provided for informational purposes only for everyone interested in such a project, with all the clear cautions and understanding that anything you do is at your own sole risk and responsibility and no operation or useful purpose is implied or possible, please carefully read and understand the contents of all comments above. 
 
+## I am looking into replacing the 82284 and 82288 
+However this is complex due to state machine design needed and obtaining sufficiently fast solution. Inside the System controller CPLD so far has not yet succeeded, only partial function obtained but no post yet.
+
 Updates will follow as soon as I have them.
+Design updates may be done in new 486 based project instead, unsure yet but I will publish update on this page as well as soon as more is known about future steps.
+
+## Right now the system functions reasonably well at 16Mhz CPU clock speed. 
+It's unsure if this system can possibly support higher clock speeds because VGA cards have trouble to initialize the VGA BIOS which is necessary for POST to happen.
