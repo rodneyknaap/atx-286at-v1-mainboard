@@ -211,6 +211,7 @@ Mostly the system now operates on 74F logic. Certain areas need HCT, ALS and HC 
 20MHz Is really stretching the capabilities of the 10ns CPLDs. I am not sure how much higher the system could run, though I have been able to get into the MR BIOS menu at 25 MHz a few times. But that is far from a functional system. At 20MHz, in windows there is some minor graphics glitching going on, though it's nothing like freezing the system or causing resets. Other than some glitching, the system keeps running fine. In DOS the system is completely stable and I have not seen any problems running games or software in DOS.
 
 ## Shadow copy routines in assembly source code:
+```
 section .text
 global main
 
@@ -242,8 +243,7 @@ mov [ds:di], cx	; write contents of cx into memory location 0xC000:0x0000
 
 goto_init:
 jmp 0xF000:0xE05B	; jump to BIOS INIT and POST start address to initialize the system
-
-
+```
 
 I should mention, building this system is an advanced work, not for novice builders. The designs need some understanding of the system in order to be able to do the modification wiring on the mainboard. You will need to know which signal goes where by looking at the quartus projects. Some signals are wired between the CPLDs which carry the same net names. I am working on a layout upgrade to include all the changes, which will eventually be released, however this is a lot of work because many areas of the PCB need to be reworked. Changing some of the logic also invites moving circuits around slightly, which will cost even more time than the modifications. I also decided to not include the RTL8019AS and the SCSI controller. The SCSI chips are too hard to find, and the RTL8019AS proved not a stable device on this system. Instead I decided to use a ISA card with a UMC9008AF network chip. I may decide to take an easier path and simply connect everything together in the new configuration, and just leaving some empty spaces on the board where chips were removed. Maybe it's not efficient, however the function of the system is the real goal that we want to achieve.
 
