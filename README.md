@@ -203,6 +203,9 @@ Schematic of 74LS646 replacement - section to be wired in place of the actual 74
 ![Schematic of 74LS646 replacement - section inside the System controller CPLD](74LS646_REPLACEMENT_CONTROL.png)
 Schematic of 74LS646 replacement - control logic inside the System controller CPLD generating the control inputs for the replacement ICs.
 
+## Regarding the real time clock
+I have done extensive testing with the RTC and CMOS RAM chip. In my tests, I achieved the most reliable results using a DS12885 chip, which I recommend using. The two jumpers next to the RTC need to be set accordingly for the DS12885 chip. Also, I suggest that no battery is really needed as long as you leave the ATX PSU on the power cable and the back power switch set to the ON position. The circuits on the mainboard will provide power to the RTC and RTC clock generator in order to advance the system clock and keep the CMOS settings. So there is no need to be working with potentially harmful batteries in the system if you prefer not to, as I also do.
+
 ## Getting 20MHz to function reliably
 Operating the system at 20MHz needs a few modifications:
 - Shadow RAM
