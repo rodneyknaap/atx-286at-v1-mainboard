@@ -196,8 +196,12 @@ When working with CPU speeds of 20MHz and higher, it's no longer reliable to use
 
 ## Replacing the 74LS646
 The 74LS646 used in the IBM 5170 AT design is another part which needs substitution. So I proceeded to analyze and rewrite the logic of the 74LS646, specifically as used in the 5170 AT logic. The result is that the 74LS646 can be replaced by a single 74F245 transceiver and a 74F574 latch. I have tested this solution extensively and it now has the added advantage that the functions of the 74LS646 can now be replaced with much faster 74F type logic.
+
 ![Schematic of 74LS646 replacement - section to be wired in](74LS646_REPLACEMENT_245_574.png)
+Schematic of 74LS646 replacement - section to be wired in place of the actual 74LS646
+
 ![Schematic of 74LS646 replacement - section inside the System controller CPLD](74LS646_REPLACEMENT_CONTROL.png)
+Schematic of 74LS646 replacement - control logic inside the System controller CPLD generating the control inputs for the replacement ICs.
 
 ## Getting 20MHz to function reliably
 Operating the system at 20MHz needs a few modifications:
