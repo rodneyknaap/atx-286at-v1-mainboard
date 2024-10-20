@@ -61,7 +61,13 @@ Also a special thanks goes out to user LimeProgramming (Adam) here on GitHub for
 https://github.com/LimeProgramming/USB-serial-mouse-adapter
 He kindly agrees for his project to be integrated into mine in a modified form, thank you Adam!
 
-Everyone who commented and replied to all my posts, thanks for your help and friendship!
+During my work I always keep meeting other enthousiasts, a special mention deserves Luca (Retro*Tech) from Italy who supported me with encouraging words and expressed the kind wish to contribute some helpful hardware items for my research and development work. Thanks Luca!
+
+Thanks to sqpat for the friendly discussions about how to enhance my project, for sending me two of his verified high clock rate 286 CPUs, and for his suggested assembly code to make a shadow copy of all ROM code into shadow RAM. This change made 20MHz operation a reality! Do remember to check out [his project RealDoom here on GitHub](https://github.com/sqpat/RealDOOM)!
+
+Thank you dreNorteR for your helpful assembly code contributions and X86 programming tips for detecting a warm boot to support shadow copy functions!
+
+Everyone else who showed an interest in my work and commented and replied to all my posts, thanks for your help and friendship!
 
 - datasheets, application notes and specifications by:
 Intel (80286 datasheet)
