@@ -209,6 +209,11 @@ Schematic of 74LS646 replacement - section to be wired in place of the actual 74
 ![Schematic of 74LS646 replacement - section inside the System controller CPLD](74LS646_REPLACEMENT_CONTROL.png)
 Schematic of 74LS646 replacement - control logic inside the System controller CPLD generating the control inputs for the replacement ICs.
 
+
+## Replacing the TI 74LS612 page register chip
+I have worked on a replacement design for this chip, which normally would not need to be very complicated, however some timing problems occurred in the form of databus glitches going into the SRAM chip, which took some troubleshooting to discover and find a solution for it. It turned out that the timing was sufficiently delayed by adding additional chip enable control to the cache SRAM chip used. The SRAM was on its own databus so it would normally not need chip enable, however using this method helped to eliminate the data bus glitching and provided proper read and write access into the SRAM used as the actual register storage. The schematic only contains the circuits, and was wired to the cache SRAM chip for testing the concept. I have done additional testing in order to be able to determine that after making some modifications to the X-BUS reversal decoder, the page register will be fine to work from the S-BUS signals as well. This indicates that the page register is able to be integrated in other circuit areas of the system without issues later on in the FPGA stage design.
+![Schematic of 74LS612 replacement](74LS612_REPLACEMENT_logic.png)
+
 ## Regarding the real time clock
 I have done extensive testing with the RTC and CMOS RAM chip. In my tests, I achieved the most reliable results using a DS12885 chip, which I recommend using. The two jumpers next to the RTC need to be set accordingly for the DS12885 chip. Also, I suggest that no battery is really needed as long as you leave the ATX PSU on the power cable and the back power switch set to the ON position. The circuits on the mainboard will provide power to the RTC and RTC clock generator in order to advance the system clock and keep the CMOS settings. So there is no need to be working with potentially harmful batteries in the system if you prefer not to, as I also do.
 
