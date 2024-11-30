@@ -258,8 +258,26 @@ mov [ds:di], cx	; write contents of cx into memory location 0xC000:0x0000
 goto_init:
 jmp 0xF000:0xE05B	; jump to BIOS INIT and POST start address to initialize the system
 ```
+## Not suitable for novice builder
+I should mention, building this system is an advanced work, not for novice builders. Only someone who knows what they are getting into should attempt this. 
 
-I should mention, building this system is an advanced work, not for novice builders. The designs need some understanding of the system in order to be able to do the modification wiring on the mainboard. You will need to know which signal goes where by looking at the quartus projects. Some signals are wired between the CPLDs which carry the same net names. I am working on a layout upgrade to include all the changes, which will eventually be released, however this is a lot of work because many areas of the PCB need to be reworked. Changing some of the logic also invites moving circuits around slightly, which will cost even more time than the modifications. I also decided to not include the RTL8019AS and the SCSI controller. The SCSI chips are too hard to find, and the RTL8019AS proved not a stable device on this system. Instead I decided to use a ISA card with a UMC9008AF network chip. I may decide to take an easier path and simply connect everything together in the new configuration, and just leaving some empty spaces on the board where chips were removed. Maybe it's not efficient, however the function of the system is the real goal that we want to achieve.
+## Final gerbers are being developed and will be published
+I am working on updated PCB designs which will incorporate the last changes. I will not order and build these PCBs myself because of the high PCB costs for 4 layer boards. I will keep both the first and last revisions online so any interested builder can choose the version of my design that they want. Remember, it remains any builder's own responsibility and task to get the system to an operational condition. Do not attempt to build this design otherwise.
+
+## LAN and SCSI adapter
+The RTL8019AS should not be populated, it and the SCSI controller will be removed from the final PCB.
+
+## Conclusion of this first design stage and purpose of GitHub publication
+Publishing the updated final schematic and resulting gerber files will finalize the CPLD iteration of my development and this thread. 
+
+## Purpose of this publication
+My primary purpose of publishing here at GitHub is for sharing the technology and my work for historic and educational purposes. One of the goals was to provide a completed and full design concept of the IBM PC/AT technology since not all areas have been fully known and understood publicly and openly before this project. I am sharing my designs for interested people who appreciate the concept and importance of the historic PC/AT system and would enjoy to be able to see these designs and possibly even considering to build them which needs serious skill and determination. This project contains the information used to build the prototype and the many updated developments.
+
+## Cooperation
+This project and developing such a new PC system design is a huge work. No one can truly appreciate how much work unless they have done a similar effort, which would interest me a lot to exchange experiences in such a case. I may consider cooperations on a per-case basis, depending on if the cooperation feels good and positive, and depending on what area of cooperation I am in need of. If you want to know in what areas the project development can use help, you can read my VCF thread where I have written about potential areas where I could use the help. I appreciate and thank everyone for all intentions and offers for help, in the spirit of friendship and mutual respect, and if it intuitively sounds good to me, I may be happy to take you up on the offer.
+
+## LAN
+For LAN access I advise to choose for example a UMC UM9007AF based card or any other card which works. I advise against using a RTL8019AS based card.
 
 ## What's next now?
 Since we have a working AT concept system design, it's now possible to upgrade the core 5170 system concept into a 486 based AT PC design. I will attempt to first feature a 486DX type CPU and forcing it in 16 bit mode. This will make the transition later into a full 32 bit system more easy. So I am working on this concept now. This new design will feature one of more FPGAs for replacing much of the system logic, and to provide and control the system RAM memory. It's my intention to use the fastest affordable memory type which can hopefully support a very clock-efficient CPU function in the new design. The system will be featured using custom cards which fulfill certain functions. Such as a FPGA and memory card, a CPU card, and a core AT logic card. I also have ideas to design the system in such a way that also other solutions would be possible to form a system. Such as when a mainboard with chipset logic is badly damaged because of battery chemicals, someone could opt to move the chipset ICs onto a card and use that card to form a new ATX PC system. Basically it would be giving new life to the chipset ICs in a new design. These are just some of the research phase outlines of the next project, so due to alteration depending on what will be the best design method in my vision.
