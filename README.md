@@ -268,9 +268,6 @@ jmp 0xF000:0xE05B	; jump to BIOS INIT and POST start address to initialize the s
 ## Not suitable for novice builder
 I should mention, building this system is an advanced work, not for novice builders. Only someone who knows what they are getting into should attempt this. 
 
-## Final gerbers are being developed and will be published when finished
-I am working on updated PCB designs which will incorporate the last changes. I will not order and build these PCBs myself because of the high PCB costs for 4 layer boards. I will keep both the first and final revisions online so any interested builder can choose the version of my design that they would want. Remember, it remains any builder's own responsibility and task to get the system to an operational condition. Do not attempt to build this design otherwise.
-
 ## LAN and SCSI adapter
 The RTL8019AS should not be populated, it and the SCSI controller will be removed from the final PCB. SCSI in the first design is untested because I don't have this chip available.
 For LAN access I advise to choose for example a UMC UM9007AF based card or any other card which works. I advise against using a RTL8019AS based card.
