@@ -206,7 +206,7 @@ The 74LS646 used in the IBM 5170 AT design is another part which needs substitut
 ![Schematic of 74LS646 replacement - section to be wired in](74LS646_REPLACEMENT_245_574.png)
 Schematic of 74LS646 replacement - section to be wired in place of the actual 74LS646
 
-![Schematic of 74LS646 replacement - section inside the System controller CPLD](74LS646_REPLACEMENT_CONTROL_V2.png)
+![Schematic of 74LS646 replacement - section inside the System controller CPLD](74LS646_REPLACEMENT_CONTROL_V_2.png)
 Schematic of 74LS646 replacement - control logic inside the System controller CPLD generating the control inputs for the replacement ICs.
 
 ## Replacing the TI 74LS612 page register chip
