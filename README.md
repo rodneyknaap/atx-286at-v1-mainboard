@@ -308,16 +308,14 @@ SMD chip soldering is actually a lot less difficult than it may seem at first lo
 ## Project timeline  
 The PC/AT 286 project development timeline has been set as follows:  
 - REV1 project with system control development (manual wiring) - 18MHz recommended
-- REV3D CPLD project with fully integrated CPLD bus control and RealDOOM compatible EMS - 22.4MHz recommended
-- REV4 FPGA based project with full system integration into a FPGA chip
+- REV3D CPLD project with fully integrated CPLD bus control and RealDOOM compatible EMS - 22.4MHz recommended (finished)
+- REV4 FPGA based project with full system integration into a FPGA chip (in progress)
 
-The REV4 FPGA project is in preparation, more details will follow on a separate GitHub repository.
-
-The project development has been continued with the REV3D system, which now is also reasonably completed. 
-After that the REV4 system will be developed and debugged next.
+Development of the REV4 FPGA project is now started, the details are featured in this repository:
+https://github.com/rodneyknaap/ATX-286_PCAT-REV4-FPGA_mainboard
 
 Kind regards,
 
 Rodney
 
-Updated last on november 17th, 2025.
+Updated last on jan 15th, 2026.
