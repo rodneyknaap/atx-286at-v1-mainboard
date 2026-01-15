@@ -311,7 +311,7 @@ The PC/AT 286 project development timeline has been set as follows:
 - REV3D CPLD project with fully integrated CPLD bus control and RealDOOM compatible EMS - 22.4MHz recommended (finished)
 - REV4 FPGA based project with full system integration into a FPGA chip (in progress)
 
-Development of the REV4 FPGA project is now started, the details are featured in this repository:
+Development of the REV4 FPGA project is now started, the details are featured in this repository:  
 https://github.com/rodneyknaap/ATX-286_PCAT-REV4-FPGA_mainboard
 
 Kind regards,
