@@ -312,7 +312,20 @@ The PC/AT 286 project development timeline has been set as follows:
 - REV4 FPGA based project with full system integration into a FPGA chip (in progress)
 
 Development of the REV4 FPGA project is now started, the details are featured in this repository:  
-https://github.com/rodneyknaap/ATX-286_PCAT-REV4-FPGA_mainboard
+[https://github.com/rodneyknaap/ATX-286_PCAT-REV4-FPGA_mainboard](https://github.com/rodneyknaap/ATX-286_PCAT-REV4-QFP-FPGA_mainboard)
+
+# POSSIBLE FOLLOW UP DESIGN PLANNED
+I am currently considering a possible follow up design where I use the same design approach however the design could be featured in a more comprehensive way with the new knowledge gained from follow up stages. Basically the idea is to design the REV1 stage the way I would like to see it now from the current perspective. This design will be named REV2B. I may also release a REV2A version which could reflect the REV1 design with all the development and rewiring integrated as done on my proven prototype here on my shelf.  
+So the REV2A could reflect the developed version exactly, and the REV2B would constitute a more bold type of rework where I am restructuring the design however still using the same design approach, which includes the PLCC CPLDs and TTL chips.
+
+## Sectional description: A0 and BHE handling  
+A0 and BHE are handled separately because these are being driven differently during the conversion cycle and DMAC cycles.
+This schematic reflects the overview of the entire logic which results in the SA0 and SBHE slot outputs, as well as the 286 data bus gate control outputs.
+A0 and BHE then continue to also drive the cycle termination logic to decode upper and lower data byte control and the conversion/DMA data path transceiver.  
+I used quartus as the schematic editor so I can compile and verify the entire schematic and also I can copy the sections into REV2B quartus projects.
+Some pins are featured here as inputs to allow a full compilation to succeed in quartus, however in the system controller of REV2B these are partially internally generated signals.  
+
+![Schematic of A0 and BHE control of PC/AT system](PC_AT_A0_BHE_HANDLING.png)  
 
 Kind regards,
 
