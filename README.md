@@ -321,7 +321,10 @@ So the REV2A could reflect the developed version exactly, and the REV2B would co
 ## Sectional description: A0 and BHE handling  
 A0 and BHE are handled separately because these are being driven differently during the conversion cycle and DMAC cycles.
 This schematic reflects the overview of the entire logic which results in the SA0 and SBHE slot outputs, as well as the 286 data bus gate control outputs.  
-A0 and BHE then continue to also drive the cycle termination logic to decode upper and lower data byte control and the conversion/DMA data path transceiver.  
+SA0 and SBHE then continue to also drive the 286 cycle termination logic to decode upper and lower data byte control as well as the conversion/DMA data path transceiver. 
+During DMAC cycles the 286 is holding, and SA0 and SBHE are generated based on DMAC activity.  
+During certain DMA cycles, the low-high data byte conversion transceiver is also enabled to allow a data path targeting odd address conditions.
+So this transceiver is used during 286 and DMAC cycles.  
 I used quartus as the schematic editor so I can compile and verify the entire schematic and also I can copy the sections into REV2B quartus projects.  
 NB: Some pins are featured here as inputs to allow a full compilation to succeed in quartus, however in the system controller of REV2B these are partially internally generated signals.  
 
