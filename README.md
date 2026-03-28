@@ -319,6 +319,9 @@ I am currently considering a possible follow up design where I use the same desi
 So the REV2A could reflect the developed version exactly, and the REV2B would constitute a more bold type of rework where I am restructuring the design however still using the same design approach, which includes the PLCC CPLDs and TTL chips.
 
 ## Sectional description: A0 and BHE handling  
+
+![Schematic of A0 and BHE control of PC/AT system](PC_AT_A0_BHE_HANDLING.png)  
+
 A0 and BHE are handled separately because these are being driven differently during the conversion cycle and DMAC cycles.
 This schematic reflects the overview of the entire logic which results in the SA0 and SBHE slot outputs, as well as the 286 data bus gate control outputs.  
 SA0 and SBHE then continue to also drive the 286 cycle termination logic to decode upper and lower data byte control as well as the conversion/DMA data path transceiver.  
@@ -328,10 +331,8 @@ So this transceiver is used during 286 and DMAC cycles.
 I used quartus as the schematic editor so I can compile and verify the entire schematic and also I can copy the sections into REV2B quartus projects.  
 NB: Some pins are featured here as inputs to allow a full compilation to succeed in quartus, however in the system controller of REV2B these are partially internally generated signals.  
 
-![Schematic of A0 and BHE control of PC/AT system](PC_AT_A0_BHE_HANDLING.png)  
-
 Kind regards,
 
 Rodney
 
-Updated last on jan 15th, 2026.
+Updated last on march 28th, 2026.
