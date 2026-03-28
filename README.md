@@ -322,7 +322,8 @@ So the REV2A could reflect the developed version exactly, and the REV2B would co
 
 ![Schematic of A0 and BHE control of PC/AT system](PC_AT_A0_BHE_HANDLING.png)  
 
-A0 and BHE are handled separately because these are being driven differently during the conversion cycle and DMAC cycles.
+A0 and BHE are handled separately in a PC/AT system because these need to be driven differently during the conversion cycle and DMAC cycles.  
+
 This schematic reflects the overview of the entire logic which results in the SA0 and SBHE slot outputs, as well as the 286 data bus gate control outputs.  
 SA0 and SBHE then continue to also drive the 286 cycle termination logic to decode upper and lower data byte control as well as the conversion/DMA data path transceiver.  
 During DMAC cycles the 286 is holding, and SA0 and SBHE are generated based on DMAC activity. Formerly this was realized in part by U87 in the IBM 5170.  
