@@ -326,7 +326,7 @@ A0 and BHE are handled separately in a PC/AT system because these need to be dri
 
 This schematic reflects the overview of the entire logic which results in the SA0 and SBHE slot outputs, as well as the 286 data bus gate control outputs.  
 
-SA0 and SBHE then continue to also drive the 286 cycle termination logic to decode upper and lower data byte control as well as the conversion/DMA data path transceiver.  
+SA0 and SBHE then continue to also drive the 286 cycle termination logic to decode upper and lower data byte cycles as well as driving the conversion/DMA data path transceiver control logic.  
 
 During DMAC cycles the 286 is holding, and SA0 and SBHE are generated based on DMAC activity. Formerly this was realized in part by U87 in the IBM 5170.  
 
