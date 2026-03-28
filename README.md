@@ -324,13 +324,13 @@ So the REV2A could reflect the developed version exactly, and the REV2B would co
 
 A0 and BHE are handled separately in a PC/AT system because these need to be driven differently during the conversion cycle and DMAC cycles.  
 
-This schematic reflects the overview of the entire logic which results in the SA0 and SBHE slot outputs, as well as the 286 data bus gate control outputs.  
+This schematic is comprised from circuits both on the mainboard and inside the CPLDs, and reflects the overview of the entire logic which results in the SA0 and SBHE slot outputs, as well as the 286 data bus gate control outputs. Logic has been updated here according to certain latest updates in the REV3D design in order to provide a complete comprehensive description which is more reduced to the essentials. In the 5170 some of the signals are joined together using output enabled end points where here we use multiplexing the source signals together.
 
 SA0 and SBHE then continue to also drive the 286 cycle termination logic to decode upper and lower data byte cycles as well as driving the conversion/DMA data path transceiver control logic.  
 
 During DMAC cycles the 286 is holding, and SA0 and SBHE are generated based on DMAC activity. Formerly this was realized in part by U87 in the IBM 5170.  
 
-During certain DMA cycles, the low-high data byte conversion transceiver is also enabled to create a data path targeting odd address conditions.
+During certain DMA cycles, the low-high data byte conversion transceiver is also enabled to create a data path targeting odd (high byte) address positions.
 So this transceiver is used during both 286 and DMAC cycles.  
 
 I used quartus as the schematic editor so I can compile and verify the entire schematic and also I can copy the sections into REV2B quartus projects.  
