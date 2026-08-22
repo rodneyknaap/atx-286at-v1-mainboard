@@ -336,19 +336,37 @@ So this transceiver is used during both 286 and DMAC cycles.
 I used quartus as the schematic editor so I can compile and verify the entire schematic and also I can copy the sections into REV2B quartus projects.  
 NB: Some pins are featured here as inputs to allow a full compilation to succeed in quartus, however in the system controller of REV2B these are partially internally generated signals.  
 
-# Update regarding the project blog  
-From july 2026 I will only update my project blog on my own website and I will update the readme info on GitHub for the projects.  
+# 22-8-2026 Developing the REV2A situation even further  
 
-So anyone who is interested is hereby invited to take a look at my website.
-I created a forum system there and if you like to join, feel free to send me an email and I will create a login for you so you can post subjects and reply to threads. 
+I have worked a lot on the REV3E system until I reached an almost fully synchronous design for the System controller. 
 
-You can find my website in the repository link URL or via https://www.knaapic.nl  
-The menu "Historic computing" contains dedicated pages for the repository projects.
+So looking back at this REV1 stage, which I have developed further and upgraded substantially by manually rewiring in the corresponding CPLD and system design changes onto the REV1 board, producing the "REV2A" design state, which currently doesn't have a layout(yet).  
+
+After getting such excellent results, I can't help but wonder whether now the REV2A rewired system could also benefit somehow from all the new logic.  
+
+So I have reworked the REV2A System controller in such a way that the system control largely matches the REV3E design.  
+Of course, we don't have the fast CPLD driven system bus and memory bus as in the REV3E design. However it would be very interesting to at least do an attempt to try to find out how the largely TTL bus based system could fare with the new System control.  
+
+So I am going to take a substantial risk with the rewired REV2A boards to completely overhaul these to match my new System controller CPLD design.  So let's call the new System controller the "REV2C" version.  
+
+And I will start with something else first, I am once again going to look into the situation of the 3 system ROM ICs which I really want to replace with a single ROM in 8 bit mode. One of the reasons for this is saving PCB space, but also the fact that running a ROM in 8 bit mode will largely benefit the 80286 CPU at much higher clock frequencies for example at 20MHz.   
+
+I still believe that the TTL based system should be capable of running at 20MHz since the CPU does initialize when clocked at this speed at least, and the issues found at the time were more related to the READY timing, so we are going to find this out whether we could still run this system at 20MHz CPU speed. We will use a 80MHz input clock oscillator on the System controller.  
+
+So I have redone most of the System controller design here in the 84 pin package, where I am going to handle the DMA commands from within the System controller, as well as the generation of SA0 and SBHE which will be directly handled in the System controller. We will also use the glitchless clock multiplexer HDL code block parts, the new RESET and CPU_RESET, 8042RC and CPU shutdown detection and handling, the new cycle start and stop logic, new conversion shifter control, new DEN, etc. In terms of pins, this should just work out, but I still could repurpose the unused 0WS input on the System controller if another pin would be necessary.  
+
+I will start with the 8 bit mode ROM experiment, and see how this will work out since I will need to somehow wire in a single 1 Megabit ROM chip onto the board. Hopefully I can make this fit in the option ROM socket which is in 8 bit mode address wiring.  
+
+I will also update about these latest findings on my website forum page:  
+https://knaapic.nl/phpBB3/viewtopic.php?p=17#p17  
+
+The menu "Historic computing" from the homepage contains dedicated pages for the repository projects.
 A lot of information is the same as here but some details have been elaborated on my website.
 The forum link is: 
-https://knaapic.nl/community/   
+https://knaapic.nl/phpBB3/index.php
 
 Thank you for your interest, I look forward to hearing from you!
+If you like this project, please consider giving it a star, which can also let me know the actual interest 
 
 Kind regards,
 
