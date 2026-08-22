@@ -340,7 +340,7 @@ NB: Some pins are featured here as inputs to allow a full compilation to succeed
 
 I have worked a lot on the REV3E system until I reached an almost fully synchronous design for the System controller. 
 
-So looking back at this REV1 stage, which I have developed further and upgraded substantially by manually rewiring in the corresponding CPLD and system design changes onto the REV1 board, producing the "REV2A" design state, which currently doesn't have a layout(yet).  
+So I am now looking back at this REV1 stage manually upgraded to the "REV2A" design state, which currently doesn't have a layout(yet).  
 
 After getting such excellent results, I can't help but wonder whether now the REV2A rewired system could also benefit somehow from all the new logic.  
 
