@@ -347,26 +347,30 @@ After getting such excellent results, I can't help but wonder whether now the RE
 So I have reworked the REV2A System controller in such a way that the system control largely matches the REV3E design.  
 Of course, we don't have the fast CPLD driven system bus and memory bus as in the REV3E design. However it would be very interesting to at least do an attempt to try to find out how the largely TTL bus based system could fare with the new System control.  
 
-So I am going to take a substantial risk with the rewired REV2A boards to completely overhaul these to match my new System controller CPLD design.  So let's call the new System controller the "REV2C" version.  
+So I am going to take a substantial risk with the rewired REV2A system to completely overhaul it to match my new System controller CPLD design.  So let's call the new System controller the "REV2C" version.  
 
 And I will start with something else first, I am once again going to look into the situation of the 3 system ROM ICs which I really want to replace with a single ROM in 8 bit mode. One of the reasons for this is saving PCB space, but also the fact that running a ROM in 8 bit mode will largely benefit the 80286 CPU at much higher clock frequencies for example at 20MHz.   
 
 I still believe that the TTL based system should be capable of running at 20MHz since the CPU does initialize when clocked at this speed at least, and the issues found at the time were more related to the READY timing, so we are going to find this out whether we could still run this system at 20MHz CPU speed. We will use a 80MHz input clock oscillator on the System controller.  
 
-So I have redone most of the System controller design here in the 84 pin package, where I am going to handle the DMA commands from within the System controller, as well as the generation of SA0 and SBHE which will be directly handled in the System controller. We will also use the glitchless clock multiplexer HDL code block parts, the new RESET and CPU_RESET, 8042RC and CPU shutdown detection and handling, the new cycle start and stop logic, new conversion shifter control, new DEN, etc. In terms of pins, this should just work out, but I still could repurpose the unused 0WS input on the System controller if another pin would be necessary.  
+So I have redone most of the System controller design here in the 84 pin package, where I am going to handle the DMA commands from within the System controller, as well as the generation of SA0 and SBHE and producing the XIOR_n and XIOW_n core AT controller IO command outputs, which will be directly handled in the System controller, we will remove U89 because the System controller will take over those funtions or some of them are eliminated from the system. We will also use the glitchless clock multiplexer HDL code block parts, the new RESET and CPU_RESET, 8042RC and CPU shutdown detection and handling, the new cycle start and stop logic, new conversion shifter control, new DEN, etc. In terms of pins, this should just work out, but I still could repurpose the unused 0WS input on the System controller if another pin would be necessary.  
 
-I will start with the 8 bit mode ROM experiment, and see how this will work out since I will need to somehow wire in a single 1 Megabit ROM chip onto the board. Hopefully I can make this fit in the option ROM socket which is in 8 bit mode address wiring.  
+I will start with the 8 bit mode ROM experiment, and see how this will work out since I will need to somehow wire in a single 1 Megabit ROM chip onto the board. Hopefully I can make this fit somehow onto the option ROM socket which is in 8 bit mode address wiring.  
 
 I will also update about these latest findings on my website forum page:  
 https://knaapic.nl/phpBB3/viewtopic.php?p=17#p17  
 
 The menu "Historic computing" from the homepage contains dedicated pages for the repository projects.
 A lot of information is the same as here but some details have been elaborated on my website.
-The forum link is: 
-https://knaapic.nl/phpBB3/index.php
+The forum link is:  
+https://knaapic.nl/phpBB3/index.php  
+The website menu to find the normal product pages is in the normal website page:  
+https://knaapic.nl/historic-computing  
 
-Thank you for your interest, I look forward to hearing from you!
-If you like this project, please consider giving it a star, which can also let me know the actual interest 
+If you like this project and the ongoing work I am doing on it, please consider giving it a star, which can also let me know the actual interest.
+
+I am currently also considering to redesign this project on a future Micro-ATX sized board, possibly using 1Mbyte SRAMs.  
+It also depends on the testing and experimentation findings to see if the REV2C system may have some potential to work out.
 
 Kind regards,
 
