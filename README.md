@@ -374,16 +374,13 @@ Anyway, I am merely exploring this idea, and if this works out, I will share the
 
 Interested people are also invited to look at my website where I feature a regularly updated forum which lists the individual findings on the PC/AT development and also shares the diagrams to illustrate the new ideas that have resulted. So this adds a lot of valuable information regarding the PC/AT system and those who are interested in this technology should have a look at the forum. The featured diagrams are all relevant because they relate to PC/AT 80286 System control and design structure. So here we are working to faithfully develop the 5170 concept onward in ways that in my vision and experience naturally could follow from the IBM 5170 and 5162.
 
-The menu "Historic computing" from the homepage contains dedicated pages for the repository projects.
-A lot of information is the same as here but some details have been elaborated on my website.  
-
 The forum link is:  
 https://knaapic.nl/phpBB3/index.php  
 
-The menu Historic computing shows the individual project pages, and there is also a forum link in the top menu which leads to the project forum.  
+The menu Historic computing shows the individual project pages, and there is also a forum link in the top menu which also leads directly to the project update forum.  
 https://knaapic.nl/historic-computing  
 
-If you like this project and the ongoing work I am doing on it, please consider giving it a star, which can also let me know the actual interest.
+If you like this project and the ongoing work I am doing on it, please consider giving it a star, which can also let me know the actual interest. If you are interested to build a REV2C feel free to reach out to me, my contact details are on the website via the second URL of the website itself and my contact details are also in my profile here.  
 
 Kind regards,
 
