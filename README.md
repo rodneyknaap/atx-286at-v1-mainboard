@@ -360,20 +360,33 @@ I will start with the 8 bit mode ROM experiment, and see how this will work out 
 I will also update about these latest findings on my website forum page:  
 https://knaapic.nl/phpBB3/viewtopic.php?p=17#p17  
 
+# 8-9-2026 Developing the REV2C revision
+
+After confirming the single 8 bit mode ROM, eliminating U89 and generating SA0 and SBHE using spare pins on the 84 pin System controller, as well as merging all the DMA commands inside the System controller, I have been able to test all this successfully. These test results are very positive and I feel that creating a new design based on these findings could be feasible. Basically this updates a lot of REV3E development into the previous stage 84 pin System controller for this project.  
+
+I am currently exploring what a new design using the same 3 84 pin PLCC CPLDs would look like. I have looked at the propagation times of TTL ICs which may still support higher clock speeds of the CPU.   
+
+So the idea I am exploring is to use a single system ROM in 8 bit mode on the X-bus, then using the IO decoder to generate the lowest system address bus bits, and partially repurposing the memory decoder CPLD as a new Address bus driver CPLD. So we drive the higher system address bus bits from SA8 onward until SA20 which also will include handling the DMA mid address registers inside the Address bus driver, same as the REV3E project. This will also involve routing the XD bus to the address bus driver. I will need to see if the pins can suffice to do all this. So we can basically eliminate a number of TTL bus chips and handle the functions with the CPLDs. A next step will be to feature all three CPLDs on the mainboard, featuring 1MB SRAMs on the mainboard itself. After that I will look into possibly reducing the mainboard dimensions to micro-ATX size. If we would be able to do all these things, it may yet lead to a faster REV2C revision. The idea is also to use 45ns SRAMs so we can be able to handle possibly up to 22.4MHz with a REV2C revision design.   
+
+I have seen that this revision appears to be very popular so this also leads me to revisit what an actual follow up design would look like where we can then merge all the findings and developments into one design. Of course, there will still be some limited SMD soldering involved same as the REV1 system build. The way it is currently looking, we may be able to suffice with only the SRAMs being SMD parts simply because there are no DIP manufacturing for 1 megabyte SRAMs, and even if there were, this would quickly end up becoming bulky and non practical when using through hole SRAMs. Maybe 4MB would be possible then, but there may be a lot of builders who would want to have more. Still, I will need to look into how many SRAMs can fit on this design after I optimize the available space.  
+
+Anyway, I am merely exploring this idea, and if this works out, I will share the "REV2C" design and production files here in the directory for this project.  
+
+Interested people are also invited to look at my website where I feature a regularly updated forum which lists the individual findings on the PC/AT development and also shares the diagrams to illustrate the new ideas that have resulted. So this adds a lot of valuable information regarding the PC/AT system and those who are interested in this technology should have a look at the forum. The featured diagrams are all relevant because they relate to PC/AT 80286 System control and design structure. So here we are working to faithfully develop the 5170 concept onward in ways that in my vision and experience naturally could follow from the IBM 5170 and 5162.
+
 The menu "Historic computing" from the homepage contains dedicated pages for the repository projects.
-A lot of information is the same as here but some details have been elaborated on my website.
+A lot of information is the same as here but some details have been elaborated on my website.  
+
 The forum link is:  
 https://knaapic.nl/phpBB3/index.php  
-The website menu to find the normal product pages is in the normal website page:  
+
+The menu Historic computing shows the individual project pages, and there is also a forum link in the top menu which leads to the project forum.  
 https://knaapic.nl/historic-computing  
 
 If you like this project and the ongoing work I am doing on it, please consider giving it a star, which can also let me know the actual interest.
-
-I am currently also considering to redesign this project on a future Micro-ATX sized board, possibly using 1Mbyte SRAMs.  
-It also depends on the testing and experimentation findings to see if the REV2C system may have some potential to work out.
 
 Kind regards,
 
 Rodney
 
-Updated last on august 22nd, 2026.
+Updated last on september 8th, 2026.
