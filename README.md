@@ -385,7 +385,10 @@ I will rerun the previous tests because I still want to retry driving the VGA co
 
 Other intended improvements as mentioned at the top are that I am looking into featuring EMS on the TTL/PLCC variant of this project. So the idea is to use the same logic as the REV3E system however most of it is now running in TTL ICs instead of inside the CPLD. In addition this will take a little more trace and component area so I will need to shift all the ICs down and into the IO area as much as possible to create more space in the core CPU area.  
 
-More details will follow shortly!
+# Updated test results: the REV2C precursor system is now operational at 20MHz using a 80MHz oscillator!  
+This is a huge improvement on the REV1 system developed and modified to partial REV2C configuration. So now the system is fully operational at 20MHz, and the VGA controller is running at full speed without any cycle control. It's not entirely stable using my somewhat older VGA card, and after swapping it with a Diamond Speedstar card, I was able to run the VGA write cycles at 13266 writes per millisecond! Up to now I have not seen this performance level with the REV1 type of system using TTL and CPLD ICs! The REV2C now runs 3D benchmark at 7 fps when clocked at 20MHz. So we have these VGA speeds matched with the same system RAM write speeds at 1 wait state using SRAM. So far this is the best performance yet on this TTL / PLCC CPLD system. So I have now seen matched VGA cycle speeds with fast system RAM writes. So this is all thanks to the synchronous system controller logic paired with a 80MHz oscillator, and modified memory decoding, bypassing the LAxx transceiver and pre-latching the address bits and MEM_CS_16_n. After swapping the VGA card with the newer Diamond Speedstar Cirrus Logic based card, this card is able to deliver the 13266 writes per millisecond that the 80286 is running. I am seeing zero text artifacts, and running a Wolf3D game demo is the fastest I have seen so far on the TTL/PLCC CPLD system. All of the tests run fine with the bypassed LAxx lines. It turns out the system runs best with the gated A20 and mapper A20 combined net bypassed to LA20.  
+
+So all the System controller improvements have now led to this amazing performance result on the REV2C precursor system, which proves that a TTL/PLCC CPLD based system is also showing potential for reaching higher clock speeds by combining many logic improvements and tweaking the LAxx line timing. It's just the combination of all the improvements that has made all the difference now!
 
 Interested people are also invited to look at my website where I feature a regularly updated forum which lists the individual findings on the PC/AT development and also shares the diagrams to illustrate the new ideas that have resulted. So this adds a lot of valuable information regarding the PC/AT system and those who are interested in this technology should have a look at the forum. The featured diagrams are all relevant because they relate to PC/AT 80286 System control and design structure. So here we are working to faithfully develop the 5170 concept onward in ways that in my vision and experience naturally could follow from the IBM 5170 and 5162.
 
@@ -401,4 +404,4 @@ Kind regards,
 
 Rodney
 
-Updated last on september 12th, 2026.
+Updated last on september 13th, 2026.
